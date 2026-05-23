@@ -1,0 +1,39 @@
+  Install and run flickrfinder on this machine from
+  https://github.com/joocifer/flickrfinder.git.
+
+  End state I want: the web UI is reachable at http://127.0.0.1:8765 by the
+  time you're done.
+  
+  Hard constraints:
+  - Do NOT push to git or touch my ~/.gitconfig.
+  - Do NOT auto-install system packages (brew, apt, etc.). If a prerequisite
+    is missing, stop and tell me what to install.
+  - Pause whenever you need credentials or a manual browser action — don't
+    try to script the OAuth flow.
+  - ASK before doing anything that takes >2 minutes (the metadata sync) or
+    that exposes the app to the network (the launchd auto-start).
+
+  Procedure:
+  1. Clone the repo into ~/ccode/flickrfinder (ask me first if that path                                                         
+     already exists). Then read INSTALL.md from the repo — that's the
+     authoritative step-by-step; follow it, applying the constraints above.
+
+  2. When INSTALL.md asks you to fill in the API key + secret in .env, ask
+     me for them (I'll get them from
+     https://www.flickr.com/services/apps/create/). Don't echo them back
+     in your output.
+  
+  3. When you reach the `flickrfinder sync` step, ASK before running it
+     instead of just kicking it off — for ~10k photos it's a ~3 hour
+     operation. Note that it's resumable, runs in the background, and the
+     UI works against partial data.
+
+  4. When you reach the optional macOS launchd step, ASK before running
+     it — it binds the server to 0.0.0.0, so anyone on my LAN can use it
+     with no authentication.
+
+  5. When the server is up, tell me the URL to open in my browser, then
+     stop. Don't open the browser for me.
+  
+  Tell me up front if any step fails or anything is ambiguous, and don't
+  move past it until I respond.
