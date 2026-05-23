@@ -10,10 +10,6 @@ Runs locally on macOS. Pulls metadata in the background into a SQLite database, 
 
 Full-size originals are only downloaded when you ask for them, then cached on disk.
 
-## Status
-
-Early development. See [PLAN.md](./PLAN.md) for the phased build.
-
 ## Requirements
 
 - macOS
