@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Template for the flickrfinder LaunchAgent. The install-launchd.sh script
+  substitutes __REPO__ with the absolute path of this checkout and writes
+  the result to ~/Library/LaunchAgents/com.flickrfinder.server.plist.
+-->
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.flickrfinder.server</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>__REPO__/.venv/bin/flickrfinder</string>
+      <string>serve</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>__REPO__</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>FLICKRFINDER_HOST</key>
+      <string>0.0.0.0</string>
+      <key>FLICKRFINDER_PORT</key>
+      <string>8765</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>__REPO__/data/flickrfinder.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>__REPO__/data/flickrfinder.log</string>
+  </dict>
+</plist>
